@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Mahafujur Rahman — Management Researcher</title>
+<meta name="description" content="Md. Mahafujur Rahman — researcher in digital leadership, HRM, and AI for sustainable performance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="topbar">
+  <a href="#top" class="topbar__name">M. Mahafujur Rahman</a>
+  <nav class="topbar__nav">
+    <a href="#now">Now</a>
+    <a href="#work">Publication</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__text">
+      <p class="hero__kicker" id="hero-kicker"></p>
+      <h1 class="hero__name" id="hero-name"></h1>
+      <p class="hero__tagline" id="hero-tagline"></p>
+      <p class="hero__bio" id="hero-bio"></p>
+      <div class="hero__links" id="hero-links"></div>
+    </div>
+    <div class="hero__portrait">
+      <img id="hero-photo" src="" alt="Portrait">
+      <p class="hero__location" id="hero-location"></p>
+    </div>
+  </section>
+
+  <!-- FOCUS TAGS -->
+  <section class="focus" id="focus">
+    <p class="focus__label">Research focus</p>
+    <ul class="focus__tags" id="focus-tags"></ul>
+  </section>
+
+  <!-- NOW / CURRENT WORK -->
+  <section class="now" id="now">
+    <div class="section-head">
+      <h2>What I'm working on <span class="live-dot" aria-hidden="true"></span></h2>
+      <p class="section-sub">Updated directly from a single data file — this list reflects what's actually in progress.</p>
+    </div>
+    <div class="now__list" id="now-list"></div>
+  </section>
+
+  <!-- PUBLICATION -->
+  <section class="work" id="work">
+    <div class="section-head">
+      <h2>Publication</h2>
+    </div>
+    <div class="pub-list" id="pub-list"></div>
+  </section>
+
+  <!-- ABOUT / EDUCATION / GOAL -->
+  <section class="about" id="about">
+    <div class="about__col">
+      <h2>Education</h2>
+      <ul class="edu-list" id="edu-list"></ul>
+    </div>
+    <div class="about__col">
+      <h2 id="goal-headline"></h2>
+      <p class="goal-text" id="goal-text"></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Get in touch</h2>
+    <a class="contact__email" id="contact-email" href=""></a>
+    <div class="contact__row" id="contact-row"></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p id="footer-name"></p>
+  <p class="footer__note">Built as a living record of ongoing research.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
