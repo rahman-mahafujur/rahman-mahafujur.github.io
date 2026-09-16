@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Student & Researcher</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Portfolio.</div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <a href="cv.pdf" download class="cv-btn-3d">
+        <i class="fa-solid fa-file-arrow-down"></i> Download CV
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="glass-card hero-container">
+      
+      <div class="hero-main">
+        <div class="hero-text">
+          <span class="badge">Welcome to my space</span>
+          <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
+          <h2>Student & Researcher</h2>
+          <p>Passionate about exploring artificial intelligence, machine learning, and data-driven research to solve real-world challenges.</p>
+          
+          <div class="hero-buttons">
+            <a href="#contact" class="btn primary-btn">Contact Me</a>
+            <a href="#publications" class="btn secondary-btn">View Papers</a>
+          </div>
+        </div>
+
+        <div class="hero-image-box">
+          <img src="https://via.placeholder.com/300x300" alt="Profile Image" class="profile-img">
+        </div>
+      </div>
+
+      <!-- Video CV -->
+      <div class="video-section">
+        <h3><i class="fa-solid fa-video"></i> Quick Video Intro (2 Min)</h3>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/tgbNymZ7vqY" 
+            title="Video CV" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
