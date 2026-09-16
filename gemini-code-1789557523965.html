@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Student & Researcher</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome & Academicons for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</head>
+<body>
+
+  <!-- Background Animated Elements -->
+  <div class="bg-shape shape1"></div>
+  <div class="bg-shape shape2"></div>
+  <div class="bg-shape shape3"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Portfolio<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+    </ul>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <a href="cv.pdf" download class="cv-btn-3d">
+        <i class="fa-solid fa-file-arrow-down"></i> Download CV
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="glass-card main-card">
+      
+      <div class="hero-grid">
+        <!-- Left Column: Bio & Social Links -->
+        <div class="hero-left">
+          <span class="badge">Student & Researcher</span>
+          <h1>Hi, I'm <span class="gradient-text">Your Name</span></h1>
+          <p class="bio-text">
+            Passionate about pioneering research, machine learning, and data analytics to solve real-world complex problems. 
+          </p>
+
+          <!-- Social Hyperlink Icons -->
+          <div class="social-links">
+            <a href="https://scholar.google.com" target="_blank" class="social-icon" title="Google Scholar">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+            <a href="https://orcid.org" target="_blank" class="social-icon" title="ORCID">
+              <i class="ai ai-orcid"></i>
+            </a>
+            <a href="https://www.researchgate.net" target="_blank" class="social-icon" title="ResearchGate">
+              <i class="ai ai-researchgate"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+
+          <div class="action-btns">
+            <a href="#publications" class="btn primary-btn">Explore Papers</a>
+          </div>
+        </div>
+
+        <!-- Right Column: Profile Image -->
+        <div class="hero-right">
+          <div class="img-wrapper">
+            <img src="https://via.placeholder.com/300x300" alt="Profile Picture" class="profile-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Video CV Section -->
+      <div class="video-container">
+        <h3><i class="fa-solid fa-circle-play"></i> Video Overview</h3>
+        <div class="video-frame">
+          <iframe 
+            src="https://www.youtube.com/embed/tgbNymZ7vqY" 
+            title="Video CV" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
