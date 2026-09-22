@@ -1,271 +1,627 @@
+/* ==========================================
+   1. GLOBAL RESET & VARIABLES
+========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --border: #e2e8f0;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
 
+[data-theme="dark"] {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #818cf8;
+  --accent-hover: #6366f1;
+  --border: #334155;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
 
-/* Page Entrance Transition Animation */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  animation: pageFadeIn 0.5s ease-out forwards;
-/* Clean Roadmap Styles */
-.roadmap-header {
-  text-align: center;
-  margin-bottom: 50px;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-@keyframes pageFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-.roadmap-header h2 {
-  font-size: 2.2rem;
+/* Hard Fix for Image Zoom/Overflow Bug */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================
+   2. NAVBAR & HEADER
+========================================== */
+header, .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8%;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo, .navbar-brand {
+  font-size: 1.25rem;
   font-weight: 800;
-  margin-bottom: 5px;
+  color: var(--text-main);
+  text-decoration: none;
 }
 
-.roadmap-header p {
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links, ul.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 22px;
+}
+
+.nav-links a {
+  text-decoration: none;
   color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
 }
 
-/* Curved S-Roadmap Styling */
-.s-roadmap-wrapper {
-.zigzag-roadmap {
-position: relative;
-  max-width: 850px;
-  margin: 20px auto;
-  max-width: 800px;
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.nav-right, .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#theme-toggle, .theme-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 6px;
+}
+
+.cv-btn, .cv-btn-3d, .btn-primary {
+  background: var(--accent);
+  color: #ffffff !important;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.cv-btn:hover, .cv-btn-3d:hover, .btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   3. HOME PAGE / HERO SECTION (LAYOUT FIXED)
+========================================== */
+.hero, .hero-section, .hero-container, .main-content {
+  max-width: 1150px;
   margin: 0 auto;
-padding: 20px 0;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.road-svg {
-/* Center Dashed Road Line */
-.zigzag-roadmap::before {
-  content: '';
-position: absolute;
-top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
+/* Strict Image Sizing - Prevents Expansion */
+.hero-img, .hero-image, .profile-img, .profile-container, .hero-img-box, .hero-img-container {
+  width: 100% !important;
+  max-width: 320px !important;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
-.road-path-bg {
-  fill: none;
-  stroke: #1e293b;
-  stroke-width: 28;
-  stroke-linecap: round;
-  bottom: 0;
-  left: 50%;
-  width: 4px;
-  background: repeating-linear-gradient(to bottom, var(--accent-color) 0, var(--accent-color) 10px, transparent 10px, transparent 20px);
-  transform: translateX(-50%);
+.hero-img img, .hero-image img, .profile-img img, .profile-container img, .hero-img-box img {
+  width: 100% !important;
+  max-width: 320px !important;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
-.road-path-dashed {
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 4;
-  stroke-dasharray: 12 10;
-  stroke-linecap: round;
-}
-
-.s-roadmap-container {
-.roadmap-box {
-position: relative;
-  z-index: 2;
+.hero-text, .hero-details, .hero-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  padding: 40px 0;
-  width: 50%;
-  padding: 15px 40px;
-  box-sizing: border-box;
+  gap: 12px;
+}
+
+.hero-text h1, .hero-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.hero-subtitle, .subtitle, .hero-text h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.hero-description, .hero-text p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 600px;
+}
+
+/* Social Media Row */
+.social-links, .social-icons, .hero-socials {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 10px 0 !important;
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+.social-links a, .social-icons a, .social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.social-links a:hover, .social-icons a:hover, .social-icon:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.video-btn, .video-overview-btn, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  width: fit-content;
+}
+
+/* ==========================================
+   4. EDUCATION PAGE (IMAGE 4 DESIGN REPLICATION)
+========================================== */
+.edu-page-wrapper, .edu-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 60px 20px;
+}
+
+/* Header */
+.edu-header-title, .edu-header {
+  text-align: center;
   margin-bottom: 30px;
 }
 
-.road-item {
-  position: relative;
+.edu-header-title h1, .edu-header h1, .edu-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cursive-text, .cursive, span.cursive {
+  font-family: 'Caveat', cursive;
+  color: #6366f1;
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.edu-header-title p, .edu-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* Top 4 Stats Banner */
+.top-stats-row, .top-stats-banner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 22px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow);
+}
+
+.stat-box, .stat-card {
   display: flex;
   align-items: center;
-  width: 100%;
-.roadmap-box.left {
-  left: 0;
-  text-align: right;
+  gap: 12px;
+  border-right: 1px solid var(--border);
+  padding-right: 12px;
 }
 
-/* Curved Positioning for Desktop */
-.item-1 { justify-content: flex-start; padding-left: 20px; }
-.item-2 { justify-content: flex-end; padding-right: 20px; }
-.item-3 { justify-content: flex-start; padding-left: 20px; }
-.item-4 { justify-content: flex-end; padding-right: 20px; }
-.roadmap-box.right {
-  left: 50%;
-  text-align: left;
+.stat-box:last-child, .stat-card:last-child {
+  border-right: none;
 }
 
-/* Pin Pointer (Chobi-r Shape) */
-.pin-pointer {
-/* Pin Badges (1, 2, 3, 4) */
-.pin-badge {
-position: absolute;
-  width: 48px;
-  height: 48px;
-  border-radius: 50% 50% 50% 0;
-  top: 25px;
+.stat-icon-wrap, .stat-icon {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.1rem;
-display: flex;
-align-items: center;
-justify-content: center;
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 2;
-border: 3px solid #fff;
-}
-
-.item-1 .pin-pointer { right: 18%; transform: rotate(-45deg); }
-.item-2 .pin-pointer { left: 18%; transform: rotate(135deg); }
-.item-3 .pin-pointer { right: 18%; transform: rotate(-45deg); }
-.item-4 .pin-pointer { left: 18%; transform: rotate(135deg); }
-.roadmap-box.left .pin-badge {
-  right: -21px;
-}
-
-.pin-pointer {
-  font-family: inherit;
-.roadmap-box.right .pin-badge {
-  left: -21px;
-}
-
-/* Pin Colors */
-.p-1 { background: #ec4899; }
-.p-2 { background: #f59e0b; }
-.p-3 { background: #8b5cf6; }
-.p-4 { background: #10b981; }
-
-/* Content Card */
-.road-card {
-  width: 42%;
-/* Card Content */
-.card-content {
-background: var(--glass-bg);
-border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px);
-  padding: 22px;
-  border-radius: 18px;
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 16px;
-box-shadow: var(--glass-shadow);
-  transition: all 0.3s ease;
-  transition: transform 0.3s ease;
-}
-
-.road-card:hover {
-.card-content:hover {
-transform: translateY(-5px);
-border-color: var(--accent-color);
-}
-
-.road-card h3 {
-  font-size: 1.15rem;
-.degree-tag {
-  display: inline-block;
-  background: var(--accent-color);
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 2px 10px;
   border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.stat-icon-wrap.purple, .stat-icon.purple { background: #f3e8ff; color: #9333ea; }
+.stat-icon-wrap.blue, .stat-icon.blue { background: #e0f2fe; color: #0284c7; }
+.stat-icon-wrap.green, .stat-icon.green { background: #dcfce7; color: #16a34a; }
+.stat-icon-wrap.violet, .stat-icon.violet { background: #ede9fe; color: #7c3aed; }
+
+.stat-text h3, .stat-info h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.stat-text p, .stat-info p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Timeline Layout */
+.timeline-wrapper, .timeline-section, .roadmap-timeline {
+  position: relative;
+  margin: 40px 0;
+}
+
+.timeline-vertical-line, .timeline-center-line {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 50%;
+  width: 2px;
+  background: #cbd5e1;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timeline-block, .timeline-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-card-col, .timeline-card-wrapper {
+  width: 46%;
+}
+
+.timeline-center-node, .timeline-node, .node-point {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--bg-main);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.node-1, .p1 { background: #3b82f6; }
+.node-2, .p2 { background: #a855f7; }
+.node-3, .p3 { background: #10b981; }
+.node-4, .p4 { background: #f59e0b; }
+
+/* Timeline Cards */
+.education-card, .edu-card, .edu-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.education-card:hover, .edu-card:hover, .edu-box:hover {
+  transform: translateY(-3px);
+  border-color: #818cf8;
+}
+
+.card-primary-details, .card-left-info, .box-left {
+  flex: 1.1;
+}
+
+.card-secondary-details, .card-right-info, .box-right {
+  flex: 1;
+  border-left: 1px solid var(--border);
+  padding-left: 16px;
+}
+
+.degree-header-box, .degree-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
   margin-bottom: 8px;
 }
 
-.card-content h3 {
-  font-size: 1.1rem;
-font-weight: 700;
-color: var(--text-main);
-  margin-bottom: 6px;
-  margin-bottom: 5px;
+.degree-avatar, .degree-icon, .box-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
-.road-card h4 {
-  font-size: 0.95rem;
-.card-content h4 {
-  font-size: 0.9rem;
-color: var(--accent-color);
-margin-bottom: 8px;
-font-weight: 600;
+.bg-light-blue, .bg-blue, .icon-blue { background: #dbeafe; color: #2563eb; }
+.bg-light-purple, .bg-purple, .icon-purple { background: #f3e8ff; color: #9333ea; }
+.bg-light-green, .bg-green, .icon-green { background: #d1fae5; color: #059669; }
+.bg-light-yellow, .bg-yellow, .icon-yellow { background: #fef3c7; color: #d97706; }
+
+.degree-meta-title h3, .degree-title h3, .box-main-info h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
 }
 
-.road-date {
-.roadmap-year {
-display: block;
-font-size: 0.85rem;
-color: var(--text-muted);
-margin-bottom: 8px;
+.degree-meta-title p, .degree-title p, .box-main-info .inst {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 2px 0 0 0;
 }
 
-.road-gpa {
-.gpa-badge {
-display: inline-block;
-  background: rgba(79, 70, 229, 0.12);
-  background: rgba(79, 70, 229, 0.1);
-color: var(--accent-color);
-font-weight: 700;
-font-size: 0.85rem;
-  padding: 4px 12px;
-  border-radius: 8px;
-  margin-top: 4px;
-  padding: 4px 10px;
+.institution-detail, .meta-item, .box-main-info .time {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pill-progress, .badge-progress, .status-badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+.pill-cgpa, .badge-cgpa, .gpa-pill {
+  display: inline-block;
+  background: #f3e8ff;
+  color: #7e22ce;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
   border-radius: 6px;
+  margin-top: 8px;
 }
 
-/* Responsive View for Mobile Devices */
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .road-svg { display: none; }
-  
-  .s-roadmap-container {
-    gap: 30px;
-    padding-left: 20px;
-    border-left: 4px dashed var(--accent-color);
-    margin-left: 15px;
-  .zigzag-roadmap::before {
+.area-heading, .list-title, .box-right h4 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.area-bullet-list, .bullet-list, .box-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.area-bullet-list li, .bullet-list li, .box-right ul li {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.area-bullet-list li::before, .bullet-list li::before, .box-right ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #94a3b8;
+}
+
+/* Bottom Academic Interests Panel */
+.interests-panel, .interests-banner, .bottom-interests-banner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  margin-top: 40px;
+  box-shadow: var(--shadow);
+}
+
+.interest-intro, .interest-main, .interest-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.interest-intro h3, .interest-main h3, .interest-header h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 4px 0;
+}
+
+.interest-intro p, .interest-main p, .interest-header p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.interest-column, .interest-col {
+  border-left: 1px solid var(--border);
+  padding-left: 16px;
+}
+
+.column-header, .interest-col-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.column-header h4, .interest-col-header h4, .col-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.bottom-tagline, .footer-quote, .edu-footer-quote {
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  margin-top: 35px;
+}
+
+/* ==========================================
+   5. RESPONSIVE BREAKPOINTS
+========================================== */
+@media (max-width: 850px) {
+  .hero, .hero-section, .hero-container, .main-content {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  .hero-img, .hero-image, .profile-img, .profile-container, .hero-img-box {
+    margin: 0 auto;
+  }
+
+  .social-links, .social-icons {
+    justify-content: center;
+  }
+
+  .top-stats-row, .top-stats-banner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .timeline-vertical-line, .timeline-center-line {
     left: 20px;
-}
+  }
 
-  .road-item {
-    justify-content: flex-start !important;
-    padding: 0 !important;
-  .roadmap-box {
+  .timeline-block, .timeline-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-card-col, .timeline-card-wrapper {
     width: 100%;
-    padding-left: 55px;
-    padding-right: 10px;
-}
+    padding-left: 45px;
+  }
 
-  .road-card {
-    width: 100%;
-  .roadmap-box.left,
-  .roadmap-box.right {
-    left: 0;
-    text-align: left;
-}
+  .timeline-center-node, .timeline-node, .node-point {
+    left: 20px;
+    transform: none;
+  }
 
-  .pin-pointer {
-    position: static;
-    transform: none !important;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-  .roadmap-box.left .pin-badge,
-  .roadmap-box.right .pin-badge {
-    left: 0;
-}
+  .education-card, .edu-card {
+    flex-direction: column;
+  }
+
+  .card-secondary-details, .card-right-info {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 12px;
+  }
+
+  .interests-panel, .interests-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .interest-column, .interest-col {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 12px;
+  }
 }
